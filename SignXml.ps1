@@ -5,7 +5,7 @@ if($exist -eq $false){
     md $signedFolder
 }
 
-$cert = (Get-ChildItem -Path cert:\LocalMachine\My\270b7c1804511a174fe9bc4abd06ec3ec3a80b42 )
+$cert = (Get-ChildItem -Path cert:\LocalMachine\My\[thumbprint] )
 $keyInfoX509Data = [System.Security.Cryptography.Xml.KeyInfoX509Data]::new($cert, [System.Security.Cryptography.X509Certificates.X509IncludeOption]::ExcludeRoot)
 $xmlDocument = new-object Xml.XmlDocument
 $xmlDocument.PreserveWhitespace = $true
